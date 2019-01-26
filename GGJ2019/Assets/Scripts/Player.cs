@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 
-public class Player : Entity
+public class Player : Character
 {
     private void Update()
     {
         Move(GetDirectionVector());
+        if (Input.GetKeyDown(KeyCode.Space))
+            ShootAt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
     }
 
     bool IsGettingMovementInput()

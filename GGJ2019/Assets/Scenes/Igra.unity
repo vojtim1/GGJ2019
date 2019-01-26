@@ -188,7 +188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115591615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -3.51, y: 3.79, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -271,10 +271,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
+  rigidbody2: {fileID: 0}
   damage: 5
   speed: 10
   jumpSpeed: 5
-  rigidbody2: {fileID: 0}
+  bulletSpawnDistance: 0.2
+  bulletPrefab: {fileID: 3273422315384212127, guid: 0e840cb9010b36840a84e9fe6a3cc07c,
+    type: 3}
+  bulletSpeed: 10
 --- !u!50 &1087521342
 Rigidbody2D:
   serializedVersion: 4
