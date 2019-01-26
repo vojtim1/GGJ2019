@@ -2,11 +2,12 @@
 
 public class Player : Character
 {
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         Move(GetDirectionVector());
         if (Input.GetKeyDown(KeyCode.Space))
-            ShootAt(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            Attack(new Vector2(transform.position.x + 1, 0));
     }
 
     bool IsGettingMovementInput()
@@ -20,12 +21,14 @@ public class Player : Character
     {
         Vector2 directionVector = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
         if (Input.GetKeyDown(KeyCode.W))
-            directionVector += new Vector2(0, 1);
+            if (GroundCheck())
+                directionVector += new Vector2(0, 1);
         return directionVector;
     }
 
     public override void Die()
     {
+        base.Die();
         print("You died.");
     }
 }
