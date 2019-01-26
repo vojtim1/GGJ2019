@@ -10,6 +10,17 @@ public class Character : Entity
     float speed;
     [SerializeField]
     float jumpSpeed;
+    [SerializeField]
+    float maxGroundDistance;
+
+
+    [SerializeField]
+    bool melee = false;
+    [SerializeField]
+    float attackSpeed; //HOW MANY TIMES A SECOND CAN THIS CHARACTER ATTACK?
+    [SerializeField]
+    float nextAttack = 0;
+
 
     [Header("Shooting")]
     [SerializeField]
@@ -18,6 +29,11 @@ public class Character : Entity
     GameObject bulletPrefab;
     [SerializeField]
     float bulletSpeed;
+
+    protected virtual void Update()
+    {
+        nextAttack -= Time.deltaTime;
+    }
 
     public void Move(Vector2 direction)
     {
@@ -35,13 +51,36 @@ public class Character : Entity
         bullet.GetComponent<Rigidbody2D>().velocity = bulletSpeed * normalSpeedDirection;
     }
 
-    void Fire()
-    {
-        
-    }
-
     public Vector2 GetDirection(Vector2 objectPosition, Vector2 targetPosition)
     {
         return targetPosition - objectPosition;
     }
+
+    protected bool GroundCheck()
+    {
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down, maxGroundDistance);
+        if (hit2D.transform == null)
+            return false;
+        if (hit2D.transform.gameObject.CompareTag("Ground"))
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    protected void Attack(Vector2 targetPosition)
+    {
+        if (nextAttack <= 0)
+        {
+            if (melee)
+            {
+                //Attack melee
+            }
+            else ShootAt(targetPosition);
+
+            nextAttack = 1 / attackSpeed;
+        }
+    }
+
+
 }

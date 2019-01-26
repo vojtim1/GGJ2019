@@ -6,9 +6,10 @@ public class Entity : MonoBehaviour
     [SerializeField]
     float hp;
 
+    [HideInInspector]
     public Rigidbody2D rigidbody2;
     
-    void Start()
+    protected virtual void Start()
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
     }
