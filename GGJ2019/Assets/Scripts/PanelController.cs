@@ -10,12 +10,4 @@ public class PanelController : MonoBehaviour
 	{
 		this.screenController = screenController;
 	}
-
-    void Update()
-    {
-		if (Input.GetKeyDown(KeyCode.Return))
-		{
-			screenController.NextScreen();
-		}
-	}
 }
