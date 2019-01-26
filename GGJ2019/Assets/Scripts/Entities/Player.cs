@@ -7,7 +7,7 @@ public class Player : Character
         base.Update();
         Move(GetDirectionVector());
         if (Input.GetKeyDown(KeyCode.Space))
-            Attack(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            Attack(new Vector2(transform.position.x + 1, 0));
     }
 
     bool IsGettingMovementInput()
@@ -28,6 +28,7 @@ public class Player : Character
 
     public override void Die()
     {
+        base.Die();
         print("You died.");
     }
 }

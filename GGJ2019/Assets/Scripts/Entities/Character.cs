@@ -21,7 +21,6 @@ public class Character : Entity
     [SerializeField]
     float nextAttack = 0;
 
-
     [Header("Shooting")]
     [SerializeField]
     float bulletSpawnDistance;
@@ -37,6 +36,22 @@ public class Character : Entity
 
     public void Move(Vector2 direction)
     {
+        Animator animator = GetComponent<Animator>();
+        if (animator)
+        {
+            if (CanSkip())
+            {
+                if (direction.magnitude != 0)
+                {
+                    if (direction.x < 0)
+                        animator.CrossFade("Walk Backward", 0f);
+                    else animator.CrossFade("Walk", 0f);
+                }
+                else
+                    animator.CrossFade("Idle", 0f);
+            }
+        }
+
         Vector2 movementVector = new Vector2(Mathf.Clamp((direction.x * speed) + rigidbody2.velocity.x, -speed, speed), (direction.y * jumpSpeed) + rigidbody2.velocity.y);
 
         rigidbody2.velocity = movementVector;
@@ -74,7 +89,7 @@ public class Character : Entity
         {
             if (melee)
             {
-                //Attack melee
+                MeleeeAttack(targetPosition);
             }
             else ShootAt(targetPosition);
 
@@ -82,5 +97,25 @@ public class Character : Entity
         }
     }
 
+    protected void MeleeeAttack(Vector2 targetPosition)
+    {
+        Vector2 direction;
+        if (targetPosition.x > transform.position.x)
+            direction = Vector2.right;
+        else direction = Vector2.left;
 
+        if (GetComponent<Animator>())
+            GetComponent<Animator>().CrossFade("Attack", 0f);
+
+        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, direction, 4);
+        if (hit2D.transform == null)
+            return;
+        if (hit2D.transform.GetComponent<Entity>())
+            hit2D.transform.SendMessage("TakeDamage", damage);
+    }
+
+    public override void Die()
+    {
+        base.Die();
+    }
 }
