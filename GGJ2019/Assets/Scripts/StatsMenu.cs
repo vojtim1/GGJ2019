@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenu : PanelController
+public class StatsMenu : PanelController
 {
-    public void PlayButtonPressed()
+	public void ConfirmButtonPressed()
 	{
 		screenController.NextScreen();
 	}
