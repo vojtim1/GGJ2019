@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BSODSystemPanelController : PanelController
 {
+	[SerializeField]
+	GameObject audioPlayer;
 	Animator animator;
 
 	private void Start()
@@ -22,6 +24,7 @@ public class BSODSystemPanelController : PanelController
 
 		if (animator.GetCurrentAnimatorStateInfo(0).IsName("Next"))
 		{
+			audioPlayer.GetComponent<AudioSource>().Play();
 			screenController.NextScreen();
 		}
 	}
