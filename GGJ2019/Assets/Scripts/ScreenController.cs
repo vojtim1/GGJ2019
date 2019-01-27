@@ -22,6 +22,7 @@ public class ScreenController : MonoBehaviour
 		screens[currentScreen].SetActive(true);
     }
 
+	[ContextMenu("Next Screen")]
 	public void NextScreen()
 	{
 		screens[currentScreen].SetActive(false);

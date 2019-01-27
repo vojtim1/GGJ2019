@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e079ae4c7c20d3c46bd6bade04bd2bea
+guid: 5b592c2b9426f664296d5b6560a2e95b
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Lucida Console
+  fontName: Mecha
   fontNames:
-  - Lucida Console
+  - Mecha
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
