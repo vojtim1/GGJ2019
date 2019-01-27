@@ -5,7 +5,10 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     [SerializeField]
-    float hp;
+    public float health;
+
+    [SerializeField]
+    public float maxHealth;
 
     [HideInInspector]
     public Rigidbody2D rigidbody2;
@@ -16,13 +19,14 @@ public class Entity : MonoBehaviour
     protected virtual void Start()
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
+        health = maxHealth;
     }
 
     void TakeDamage(int amount)
     {
-        hp -= amount;
+        health -= amount;
 
-        if (hp <= 0)
+        if (health <= 0)
         {
             Die();
             return;

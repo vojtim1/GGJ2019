@@ -11,7 +11,13 @@ public class Enemy : Character
     float letGoDistance; //Stops chasing
     [SerializeField]
     float attackDistance; //Stops and attacks
+    [SerializeField]
+    GameObject muzzleExit;
+    [SerializeField]
+    GameObject muzzleFlash;
+
     EnemyStatus enemyStatus = EnemyStatus.IDLE;
+    
 
     Transform player;
 
@@ -43,7 +49,9 @@ public class Enemy : Character
         {
             if (distance >= attackDistance)
                 enemyStatus = EnemyStatus.CHASING;
-            Attack(player.position);
+            if (muzzleExit != null)
+                Attack(player.position, muzzleExit);
+            else Attack(player.position);
         }
     }
 
@@ -60,9 +68,6 @@ public class Enemy : Character
         else moveVector = Vector2.right;
         Move(moveVector);
         //CHECK FOR OBSTACLE ***ONLY IF NOT ON FLATLAND***
-
-        //ROTATE TOWARDS PLAYER
-        //ANIMATE
     }
 
     float Distance(Transform transform1, Transform transform2)
@@ -72,6 +77,10 @@ public class Enemy : Character
 
     public override void Die()
     {
-        Destroy(gameObject);
+        base.Die();
+        rigidbody2.constraints = RigidbodyConstraints2D.FreezeAll;
+        transform.GetComponentInChildren<Collider2D>().isTrigger = true;
+        enemyStatus = EnemyStatus.DEAD;
+        //Destroy(gameObject);
     }
 }
