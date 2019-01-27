@@ -12,7 +12,13 @@ public class ScreenController : MonoBehaviour
 
     void Start()
     {
-		currentScreen = 0;
+        //PlayerPrefs.SetString("SkipScreens", "False");
+        if (PlayerPrefs.GetString("SkipScreens") == "True")
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+        currentScreen = 0;
 		for (int i = 0; i < screens.Length; i++)
 		{
 			screens[i].SendMessage("SetScreenController", this);

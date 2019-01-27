@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class StatsMenu : PanelController
 {
-	public void ConfirmButtonPressed()
+    public void ConfirmButtonPressed()
 	{
-		screenController.NextScreen();
+        PlayerPrefs.SetString("SkipScreens", "True");
+        screenController.NextScreen();
 	}
 }
