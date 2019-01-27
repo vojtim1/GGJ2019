@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D),typeof(AudioSource))]
 public class Entity : MonoBehaviour
 {
     [SerializeField]
@@ -13,17 +13,26 @@ public class Entity : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rigidbody2;
 
+	protected AudioSource audioSource;
+
+	[SerializeField]
+	AudioClip damagedSound;
+	[SerializeField]
+	AudioClip diedSound;
+
     [SerializeField]
     List<string> unskipableAnimatorStates;
 
     protected virtual void Start()
     {
         rigidbody2 = GetComponent<Rigidbody2D>();
+		audioSource = GetComponent<AudioSource>();
         health = maxHealth;
     }
 
     void TakeDamage(int amount)
     {
+		audioSource.PlayOneShot(damagedSound);
         health -= amount;
 
         if (health <= 0)
@@ -39,7 +48,8 @@ public class Entity : MonoBehaviour
 
     public virtual void Die()
     {
-        if (GetComponent<Animator>())
+		audioSource.PlayOneShot(diedSound);
+		if (GetComponent<Animator>())
             GetComponent<Animator>().CrossFade("Die", 0f);
     }
 
