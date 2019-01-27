@@ -2,6 +2,9 @@
 
 public class Player : Character
 {
+	[SerializeField]
+	AudioClip jumpSound;
+
     bool isAlive = true;
 
     protected override void Update()
@@ -34,7 +37,10 @@ public class Player : Character
         Vector2 directionVector = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
         if (Input.GetKeyDown(KeyCode.W))
             if (GroundCheck())
-                directionVector += new Vector2(0, 1);
+			{
+				directionVector += new Vector2(0, 1);
+				audioSource.PlayOneShot(jumpSound);
+			}               
         return directionVector;
     }
 
@@ -44,4 +50,9 @@ public class Player : Character
         isAlive = false;
         print("You died.");
     }
+
+	public void AddHealth(int health)
+	{
+		this.health += health;
+	}
 }
