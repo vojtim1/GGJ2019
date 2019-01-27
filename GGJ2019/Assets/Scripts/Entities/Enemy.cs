@@ -81,6 +81,7 @@ public class Enemy : Character
         rigidbody2.constraints = RigidbodyConstraints2D.FreezeAll;
         transform.GetComponentInChildren<Collider2D>().isTrigger = true;
         enemyStatus = EnemyStatus.DEAD;
+        gameObject.layer = 2;
         //Destroy(gameObject);
     }
 }

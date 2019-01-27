@@ -6,7 +6,7 @@ public class Damagers : MonoBehaviour
 {
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.transform.GetComponentInChildren<Entity>())
+		if (collision.transform.GetComponentInChildren<Player>())
 			collision.gameObject.SendMessage("TakeDamage", 10);
 	}
 }

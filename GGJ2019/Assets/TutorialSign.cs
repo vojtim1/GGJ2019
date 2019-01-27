@@ -5,6 +5,7 @@ using UnityEngine;
 public class TutorialSign : MonoBehaviour
 {
     bool checkForTrigger = true;
+    [SerializeField]
     GameObject theMessage;
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -10,7 +10,7 @@ public class MessageOnEnter : MonoBehaviour
     float time;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponentInChildren<TextBubble>())
-            collision.GetComponentInChildren<TextBubble>().Say(text, time);
+        if (collision.gameObject.layer == 8)
+            FindObjectOfType<TextBubble>().Say(text, time);
     }
 }

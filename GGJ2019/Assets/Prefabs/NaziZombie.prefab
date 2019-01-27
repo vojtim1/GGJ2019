@@ -531,7 +531,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -570,7 +570,7 @@ MonoBehaviour:
   melee: 1
   attackSpeed: 0.5
   nextAttack: 0
-  meleeRange: 12
+  meleeRange: 7
   layer:
     serializedVersion: 2
     m_Bits: 256
@@ -578,9 +578,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3273422315384212127, guid: 0e840cb9010b36840a84e9fe6a3cc07c,
     type: 3}
   bulletSpeed: 15
-  agroDistance: 30
-  letGoDistance: 40
-  attackDistance: 12
+  agroDistance: 20
+  letGoDistance: 30
+  attackDistance: 7
   muzzleExit: {fileID: 0}
   muzzleFlash: {fileID: 0}
 --- !u!70 &5852853411308219473
