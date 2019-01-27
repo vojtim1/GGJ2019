@@ -554,6 +554,8 @@ MonoBehaviour:
   health: 6
   maxHealth: 6
   rigidbody2: {fileID: 0}
+  damagedSound: {fileID: 8300000, guid: 834f975100db38a4695005db384ce75f, type: 3}
+  diedSound: {fileID: 8300000, guid: 5b6c38b73086a45429ec33b93626c5d9, type: 3}
   unskipableAnimatorStates:
   - Attack
   - Take Damage
@@ -562,6 +564,8 @@ MonoBehaviour:
   speed: 8
   jumpSpeed: 10
   maxGroundDistance: 2
+  meleeSound: {fileID: 0}
+  shootSound: {fileID: 0}
   melee: 1
   attackSpeed: 0.5
   nextAttack: 0
