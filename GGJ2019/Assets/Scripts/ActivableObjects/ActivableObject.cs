@@ -15,7 +15,7 @@ public class ActivableObject : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.layer == 8)
         {
             if (isActivator)
             {
@@ -26,7 +26,7 @@ public class ActivableObject : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.layer == 8)
         {
             if (isActivator)
             {
