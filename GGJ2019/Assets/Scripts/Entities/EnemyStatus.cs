@@ -2,5 +2,6 @@
 {
     IDLE,
     CHASING,
-    ATTACKING
+    ATTACKING,
+    DEAD
 }

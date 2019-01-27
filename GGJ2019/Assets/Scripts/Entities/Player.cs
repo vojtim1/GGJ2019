@@ -2,12 +2,24 @@
 
 public class Player : Character
 {
+    bool isAlive = true;
+
     protected override void Update()
     {
-        base.Update();
-        Move(GetDirectionVector());
-        if (Input.GetKeyDown(KeyCode.Space))
-            Attack(new Vector2(transform.position.x + 1, 0));
+        if (isAlive)
+        {
+            base.Update();
+            Move(GetDirectionVector());
+            if (Input.GetKeyDown(KeyCode.Space))
+                Attack(new Vector2(transform.position.x + 1, 0));
+            if(Input.GetKeyDown(KeyCode.S))
+            {
+                RaycastHit2D hit2D = Physics2D.Raycast(transform.position, Vector2.down, maxGroundDistance);
+                if (hit2D.transform)
+                    if (hit2D.transform.GetComponent<Platform>())
+                        hit2D.transform.SendMessage("DisablePlatform", 1);
+            }
+        }
     }
 
     bool IsGettingMovementInput()
@@ -29,6 +41,7 @@ public class Player : Character
     public override void Die()
     {
         base.Die();
+        isAlive = false;
         print("You died.");
     }
 }
