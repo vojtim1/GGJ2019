@@ -38,7 +38,7 @@ public class DoorsPanelController : PanelController
 			switcher2 = true;
 		}
 
-		if(currentTime > 6 && !switcher3)
+		if(currentTime > 5 && !switcher3)
 		{
 			audioSource.Stop();
 			screenController.NextScreen();
