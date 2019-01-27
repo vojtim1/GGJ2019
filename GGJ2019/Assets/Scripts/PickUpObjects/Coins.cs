@@ -4,7 +4,7 @@ public class Coins : PickUpObject
 {
     public override void OnPickUp()
     {
-        GameObject.FindGameObjectWithTag("Player").SendMessage("AddHealth", 2);
+		FindObjectOfType<Player>().AddHealth(5);
         Destroy(gameObject);
     }
 }
