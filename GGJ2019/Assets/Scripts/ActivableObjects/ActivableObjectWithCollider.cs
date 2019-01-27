@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class ActivableObjectWithCollider : SpriteChangingObject
+public class ActivableObjectWithCollider : ActivableObject
 {
     Collider2D localCollider;
 
