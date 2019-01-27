@@ -2,9 +2,19 @@
 
 public class Coins : PickUpObject
 {
-    public override void OnPickUp()
+	AudioSource audioSource;
+	[SerializeField]
+	AudioClip pickupSound;
+
+	private void Start()
+	{
+		audioSource = GetComponent<AudioSource>();
+	}
+
+	public override void OnPickUp()
     {
+		audioSource.PlayOneShot(pickupSound);
 		FindObjectOfType<Player>().AddHealth(5);
-        Destroy(gameObject);
+		transform.position = new Vector2(0, 1000);
     }
 }
