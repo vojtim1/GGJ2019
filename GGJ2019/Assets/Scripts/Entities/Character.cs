@@ -13,6 +13,10 @@ public class Character : Entity
     [SerializeField]
     protected float maxGroundDistance;
 
+	[SerializeField]
+	AudioClip meleeSound;
+	[SerializeField]
+	AudioClip shootSound;
 
     [SerializeField]
     bool melee = false;
@@ -87,7 +91,8 @@ public class Character : Entity
 
     public void ShootAt(Vector2 targetPosition, Vector2 spawnPosition)
     {
-        Vector2 direction = GetDirection(transform.position, targetPosition);
+		audioSource.PlayOneShot(shootSound);
+		Vector2 direction = GetDirection(transform.position, targetPosition);
         Vector2 normalSpeedDirection = (bulletSpawnDistance / direction.magnitude) * direction;
         Vector2 spawnPos = spawnPosition;
         GameObject bullet = Instantiate(bulletPrefab, spawnPos, Quaternion.Euler(Vector2.zero));
@@ -147,7 +152,8 @@ public class Character : Entity
 
     protected void MeleeeAttack(Vector2 targetPosition)
     {
-        Vector2 direction;
+		audioSource.PlayOneShot(meleeSound);
+		Vector2 direction;
         if (targetPosition.x > transform.position.x)
             direction = Vector2.right;
         else direction = Vector2.left;
