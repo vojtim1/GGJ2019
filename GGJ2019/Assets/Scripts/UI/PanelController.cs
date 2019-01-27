@@ -6,7 +6,7 @@ public class PanelController : MonoBehaviour
 {
 	protected ScreenController screenController;
 
-	public void SetScreenController(ScreenController screenController)
+	public virtual void SetScreenController(ScreenController screenController)
 	{
 		this.screenController = screenController;
 	}
