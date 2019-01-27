@@ -149,14 +149,15 @@ MonoBehaviour:
     with awe in their eyes. Don't let them down and hurry to do your deeds.\nAlso,
     if you feel like killing some monster first or getting money to be able to wash
     your clothes, feel free to do so. BUT NEVER USE THE RESTROOM! There's no time
-    to lose on that!\n\nHow to control:\n\n...\n\nThere are a few other things we
-    would like to tell you:\n\nPlease read the following terms and conditions carefully
-    before using this OUR GAME. Your use, distribution or installation of this copy
-    of \"ODDLY FAMILIAR\" indicates your acceptance of this License.\r\n OUR GAME\r\nhere
-    means Software, image files, all accompanying files, data and materials received
-    with your order of \"ODDLY FAMILIAR\".\r\nIf you do not agree to any of the terms
-    of this License, then do not install, distribute or use the  OUR GAME. If you
-    have purchased a single copy from ANAYBE\r\nor an authorized distributor, reseller
+    to lose on that!\n\nHow to control:\n\nWASD - move\nSpace - attack\nShift + F5
+    + Num 1 + Ctrl + I - exit\n\nThere are a few other things we would like to tell
+    you:\n\nPlease read the following terms and conditions carefully before using
+    this OUR GAME. Your use, distribution or installation of this copy of \"ODDLY
+    FAMILIAR\" indicates your acceptance of this License.\r\n OUR GAME\r\nhere means
+    Software, image files, all accompanying files, data and materials received with
+    your order of \"ODDLY FAMILIAR\".\r\nIf you do not agree to any of the terms of
+    this License, then do not install, distribute or use the  OUR GAME. If you have
+    purchased a single copy from ANAYBE\r\nor an authorized distributor, reseller
     or any retail channel, you may return it unused, within thirty (30) days after
     purchase, for a refund of your payment less any incidental charges. The 30-day
     warrantee is applicable only to products bought within  Czech Republic. Products
@@ -426,12 +427,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: -14.426194}
   m_textInfo:
     textComponent: {fileID: 6703231596064965882}
-    characterCount: 17092
+    characterCount: 17152
     spriteCount: 0
-    spaceCount: 3138
-    wordCount: 2958
+    spaceCount: 3155
+    wordCount: 2972
     linkCount: 0
-    lineCount: 367
+    lineCount: 369
     pageCount: 1
     materialCount: 2
   m_havePropertiesChanged: 0
@@ -1228,7 +1229,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6703231597383567336}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.08126443
+  m_Size: 0.081264466
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
